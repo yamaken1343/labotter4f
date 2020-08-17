@@ -5,11 +5,22 @@
     <title>らぼったあ for flex</title>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="main.js"></script>
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.production.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet"/>
 <body onload="init()">
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
-<button onclick="labin()"><span id="buttonLabel"></span>らぼいん </button>
+<button onclick="labin()"><span id="buttonLabel"></span>らぼいん</button>
 <button onclick="labout()"> らぼりだ</button>
+
+<div id="test"></div>
+<script>
+    const json = localStorage.getItem("log")
+    console.log(json)
+    new gridjs.Grid({
+        columns: [{id: "intime", name: "らぼいん"}, {id: "outtime", name: "らぼりだ"}, {id: "staytime", name: "滞在時間"}],
+        data: JSON.parse(json)
+    }).render(document.getElementById("test"))
+</script>
 
 らぼいん <span id="inTime"></span>
 らぼりだ <span id="outTime"></span>
