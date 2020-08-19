@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>設定 | らぼったあ for flex</title>
+</head>
+<body onload="init()">
+<script>
+    function init() {
+        const setting = JSON.parse(localStorage.getItem("setting"));
+        if (setting && setting.labinTweetText) {
+            document.getElementById("labinTweetText").value = setting.labinTweetText;
+        }
+        if (setting && setting.laboutTweetText) {
+            document.getElementById("laboutTweetText").value = setting.laboutTweetText;
+        }
+        if (setting && setting.tweetHashTag) {
+            document.getElementById("tweetHashTag").value = setting.tweetHashTag;
+        }
+    }
+
+    function save() {
+        const setting = {
+            labinTweetText: document.getElementById("labinTweetText").value,
+            laboutTweetText: document.getElementById("laboutTweetText").value,
+            tweetHashTag: document.getElementById("tweetHashTag").value
+        }
+        localStorage.setItem("setting", JSON.stringify(setting))
+    }
+
+    function reset() {
+        const setting = {
+            labinTweetText: "らぼいんしました！",
+            laboutTweetText: "らぼりだしました！",
+            tweetHashTag: "らぼったあ4f"
+        }
+        localStorage.setItem("setting", JSON.stringify(setting))
+        init()
+    }
+</script>
+<form>
+    <label for="labinTweetText">入室時つぶやく文</label><input type="text" id="labinTweetText">
+    <label for="laboutTweetText">退室時つぶやく文</label><input type="text" id="laboutTweetText">
+    <label for="tweetHashTag">ハッシュタグ</label><input type="text" id="tweetHashTag">
+</form>
+<button onclick="save()">save</button>
+<button onclick="reset()">初期設定に戻す</button>
+</body>
+</html>
