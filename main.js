@@ -66,7 +66,17 @@ function createTweetButton(text) {
 
 function init() {
     inTime = localStorage.getItem("labin");
-    const setting = JSON.parse(localStorage.getItem("setting"));
+    let setting = JSON.parse(localStorage.getItem("setting"));
+    if (!setting) {
+        const init_setting = {
+            labinTweetText: "らぼいんしました！",
+            laboutTweetText: "らぼりだしました！",
+            tweetHashTag: "らぼったあ4f",
+            labnowTweetText: "らぼなう！"
+        }
+        localStorage.setItem("setting", JSON.stringify(init_setting));
+        setting = JSON.parse(localStorage.getItem("setting"));
+    }
     console.log(inTime);
     if (inTime) {
         document.getElementById("buttonLabel").innerText = "らぼりだ"

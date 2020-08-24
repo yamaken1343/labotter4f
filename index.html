@@ -6,11 +6,43 @@
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="util.js"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+          integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
 <body onload="init()">
-<button onclick="mainButton()"><span id="buttonLabel"></span></button>
-<div id="tweetButton"></div>
-らぼいん <span id="inTime"></span>
-らぼりだ <span id="outTime"></span>
-経過時間 <span id="labTime"></span>
+<div class="pure-g">
+    <div class="pure-u-1-2">
+        <button onclick="mainButton()" class="pure-button pure-button-primary"><span id="buttonLabel"></span></button>
+    </div>
+    <div>
+        <span id="tweetButton"></span>
+    </div>
+</div>
+<div class="pure-g">
+    <div class="pure-u-1">
+        <table>
+            <tr>
+                <td>らぼいん</td>
+                <td><span id="inTime"></span></td>
+            </tr>
+            <tr>
+                <td>らぼりだ</td>
+                <td><span id="outTime"></span></td>
+            </tr>
+            <tr>
+                <td>経過時間</td>
+                <td><span id="labTime"></span></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-2">
+        <button onclick="location.href='log.html'" class="pure-button">履歴</button>
+    </div>
+    <div>
+        <button onclick="location.href='setting.html'" class="pure-button">設定</button>
+    </div>
+</div>
 </body>
 </html>
