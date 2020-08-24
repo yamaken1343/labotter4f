@@ -6,13 +6,11 @@ function toTimeString(second) {
 
 function toDateTimeString(unixTime) {
     const D = new Date(unixTime * 1000);
-    console.log(D)
     const Y = D.getFullYear();
     const M = D.getMonth() + 1;
     const d = D.getDate();
     const h = ("00" + D.getHours()).slice(-2);
     const m = ("00" + D.getMinutes()).slice(-2);
     const s = ("00" + D.getSeconds()).slice(-2);
-    console.log(Y + "/" + M + "/" + d + " " + h + ":" + m + ":" + s)
     return Y + "/" + M + "/" + d + " " + h + ":" + m + ":" + s;
 }

@@ -17,13 +17,17 @@
         if (setting && setting.tweetHashTag) {
             document.getElementById("tweetHashTag").value = setting.tweetHashTag;
         }
+        if (setting && setting.labnowTweetText) {
+            document.getElementById("labnowTweetText").value = setting.labnowTweetText;
+        }
     }
 
     function save() {
         const setting = {
             labinTweetText: document.getElementById("labinTweetText").value,
             laboutTweetText: document.getElementById("laboutTweetText").value,
-            tweetHashTag: document.getElementById("tweetHashTag").value
+            tweetHashTag: document.getElementById("tweetHashTag").value,
+            labnowTweetText: document.getElementById("labnowTweetText").value
         }
         localStorage.setItem("setting", JSON.stringify(setting))
     }
@@ -32,7 +36,8 @@
         const setting = {
             labinTweetText: "らぼいんしました！",
             laboutTweetText: "らぼりだしました！",
-            tweetHashTag: "らぼったあ4f"
+            tweetHashTag: "らぼったあ4f",
+            labnowTweetText: "らぼなう！"
         }
         localStorage.setItem("setting", JSON.stringify(setting))
         init()
@@ -40,6 +45,7 @@
 </script>
 <form>
     <label for="labinTweetText">入室時つぶやく文</label><input type="text" id="labinTweetText">
+    <label for="labnowTweetText">入室中つぶやく文</label><input type="text" id="labnowTweetText">
     <label for="laboutTweetText">退室時つぶやく文</label><input type="text" id="laboutTweetText">
     <label for="tweetHashTag">ハッシュタグ</label><input type="text" id="tweetHashTag">
 </form>
