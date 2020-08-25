@@ -1,0 +1,28 @@
+/*.button {*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  left: 50%;*/
+/*  -webkit-transform : translate(-50%,-50%);*/
+/*  transform : translate(-50%,-50%);*/
+/*  width: 100px;*/
+/*}*/
+body {
+  width: 300px;
+  margin: 10px;
+}
+
+.children-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-info {
+  width: 250px;
+}
+
+button {
+  width: 120px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

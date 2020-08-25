@@ -15,21 +15,24 @@ function labin() {
 }
 
 function labout() {
-    console.debug("labout")
-    const setting = JSON.parse(localStorage.getItem("setting"));
-    const now = new Date();
-    const outTime = Math.floor(Date.parse(now) / 1000);
-    const diff = outTime - inTime;
-    const nowLog = {"intime": inTime, "outtime": outTime, "staytime": diff};
-    inTime = null;
-    log.push(nowLog);
-    localStorage.removeItem("labin")
-    localStorage.setItem("log", JSON.stringify(log));
-    // localStorage.removeItem("log")
-    console.log(log);
-    document.getElementById("outTime").innerText = toDateTimeString(outTime);
-    createTweetButton(setting.laboutTweetText)
-    document.getElementById("buttonLabel").innerText = "らぼいん"
+  console.debug("labout")
+  const setting = JSON.parse(localStorage.getItem("setting"));
+  const now = new Date();
+  const outTime = Math.floor(Date.parse(now) / 1000);
+  const diff = outTime - inTime;
+  const nowLog = {"intime": inTime, "outtime": outTime, "staytime": diff};
+  if (localStorage.getItem("log")) {
+    log = JSON.parse(localStorage.getItem("log"));
+  }
+  inTime = null;
+  log.push(nowLog);
+  localStorage.removeItem("labin")
+  localStorage.setItem("log", JSON.stringify(log));
+  // localStorage.removeItem("log")
+  console.log(log);
+  document.getElementById("outTime").innerText = toDateTimeString(outTime);
+  createTweetButton(setting.laboutTweetText)
+  document.getElementById("buttonLabel").innerText = "らぼいん"
 
 }
 
@@ -42,7 +45,6 @@ function mainButton() {
 }
 
 function main() {
-    console.log(inTime)
     if (inTime) {
         const now = new Date();
         const diff = now / 1000 - inTime;

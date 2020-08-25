@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>らぼったあ for flex</title>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="util.js"></script>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-          integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>らぼったあ for flex</title>
+  <script async charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
+  <script src="util.js"></script>
+  <script src="main.js"></script>
+  <link crossorigin="anonymous" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
 <body onload="init()">
-<div class="pure-g">
-    <div class="pure-u-1-2">
-        <button onclick="mainButton()" class="pure-button pure-button-primary"><span id="buttonLabel"></span></button>
-    </div>
-    <div>
-        <span id="tweetButton"></span>
-    </div>
+<div class="header children-center">
+  <h1>らぼったあ for flex</h1>
 </div>
-<div class="pure-g">
-    <div class="pure-u-1">
-        <table>
-            <tr>
-                <td>らぼいん</td>
-                <td><span id="inTime"></span></td>
-            </tr>
-            <tr>
-                <td>らぼりだ</td>
-                <td><span id="outTime"></span></td>
-            </tr>
-            <tr>
-                <td>経過時間</td>
-                <td><span id="labTime"></span></td>
-            </tr>
-        </table>
+<div class="content">
+  <div class="pure-g">
+    <div class="pure-u-1-2 children-center">
+      <button class="pure-button pure-button-primary button" onclick="mainButton()"><span id="buttonLabel"></span>
+      </button>
     </div>
-</div>
+    <div class="pure-u-1-2 children-center">
+      <span id="tweetButton"></span>
+    </div>
+  </div>
+  <div class="pure-g">
+    <div class="pure-u-1 children-center">
+      <table id="main-info">
+        <tr>
+          <td>らぼいん</td>
+          <td><span id="inTime"></span></td>
+        </tr>
+        <tr>
+          <td>らぼりだ</td>
+          <td><span id="outTime"></span></td>
+        </tr>
+        <tr>
+          <td>経過時間</td>
+          <td><span id="labTime"></span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-<div class="pure-g">
-    <div class="pure-u-1-2">
-        <button onclick="location.href='log.html'" class="pure-button">履歴</button>
+  <div class="pure-g">
+    <div class="pure-u-1-2 children-center">
+      <button class="pure-button" onclick="location.href='log.html'">履歴</button>
     </div>
-    <div>
-        <button onclick="location.href='setting.html'" class="pure-button">設定</button>
+    <div class="pure-u-1-2 children-center">
+      <button class="pure-button" onclick="location.href='setting.html'">設定</button>
     </div>
+  </div>
 </div>
 </body>
 </html>
