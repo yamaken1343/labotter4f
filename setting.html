@@ -1,53 +1,53 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>設定 | らぼったあ for flex</title>
+  <meta charset="UTF-8">
+  <title>設定 | らぼったあ for flex</title>
 </head>
 <body onload="init()">
 <script>
-    function init() {
-        const setting = JSON.parse(localStorage.getItem("setting"));
-        if (setting && setting.labinTweetText) {
-            document.getElementById("labinTweetText").value = setting.labinTweetText;
-        }
-        if (setting && setting.laboutTweetText) {
-            document.getElementById("laboutTweetText").value = setting.laboutTweetText;
-        }
-        if (setting && setting.tweetHashTag) {
-            document.getElementById("tweetHashTag").value = setting.tweetHashTag;
-        }
-        if (setting && setting.labnowTweetText) {
-            document.getElementById("labnowTweetText").value = setting.labnowTweetText;
-        }
+  function init() {
+    const setting = JSON.parse(localStorage.getItem("setting"));
+    if (setting && setting.labinTweetText) {
+      document.getElementById("labinTweetText").value = setting.labinTweetText;
     }
+    if (setting && setting.laboutTweetText) {
+      document.getElementById("laboutTweetText").value = setting.laboutTweetText;
+    }
+    if (setting && setting.tweetHashTag) {
+      document.getElementById("tweetHashTag").value = setting.tweetHashTag;
+    }
+    if (setting && setting.labnowTweetText) {
+      document.getElementById("labnowTweetText").value = setting.labnowTweetText;
+    }
+  }
 
-    function save() {
-        const setting = {
-            labinTweetText: document.getElementById("labinTweetText").value,
-            laboutTweetText: document.getElementById("laboutTweetText").value,
-            tweetHashTag: document.getElementById("tweetHashTag").value,
-            labnowTweetText: document.getElementById("labnowTweetText").value
-        }
-        localStorage.setItem("setting", JSON.stringify(setting))
+  function save() {
+    const setting = {
+      labinTweetText: document.getElementById("labinTweetText").value,
+      laboutTweetText: document.getElementById("laboutTweetText").value,
+      tweetHashTag: document.getElementById("tweetHashTag").value,
+      labnowTweetText: document.getElementById("labnowTweetText").value
     }
+    localStorage.setItem("setting", JSON.stringify(setting))
+  }
 
-    function reset() {
-        const setting = {
-            labinTweetText: "らぼいんしました！",
-            laboutTweetText: "らぼりだしました！",
-            tweetHashTag: "らぼったあ4f",
-            labnowTweetText: "らぼなう！"
-        }
-        localStorage.setItem("setting", JSON.stringify(setting));
-        init()
+  function reset() {
+    const setting = {
+      labinTweetText: "らぼいんしました！",
+      laboutTweetText: "らぼりだしました！",
+      tweetHashTag: "らぼったあ4f",
+      labnowTweetText: "らぼなう！"
     }
+    localStorage.setItem("setting", JSON.stringify(setting));
+    init()
+  }
 </script>
 <form>
-    <label for="labinTweetText">入室時つぶやく文</label><input type="text" id="labinTweetText">
-    <label for="labnowTweetText">入室中つぶやく文</label><input type="text" id="labnowTweetText">
-    <label for="laboutTweetText">退室時つぶやく文</label><input type="text" id="laboutTweetText">
-    <label for="tweetHashTag">ハッシュタグ</label><input type="text" id="tweetHashTag">
+  <label for="labinTweetText">入室時つぶやく文</label><input id="labinTweetText" type="text">
+  <label for="labnowTweetText">入室中つぶやく文</label><input id="labnowTweetText" type="text">
+  <label for="laboutTweetText">退室時つぶやく文</label><input id="laboutTweetText" type="text">
+  <label for="tweetHashTag">ハッシュタグ</label><input id="tweetHashTag" type="text">
 </form>
 <button onclick="save()">save</button>
 <button onclick="reset()">初期設定に戻す</button>

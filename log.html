@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>履歴 | らぼったあ for flex</title>
-    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.production.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet"/>
-    <script src="util.js"></script>
+  <meta charset="UTF-8">
+  <title>履歴 | らぼったあ for flex</title>
+  <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.production.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet"/>
+  <script src="util.js"></script>
 </head>
 <body>
 <div id="logTable"></div>
 <script>
-    const rowString = localStorage.getItem("log")
-    console.log(rowString)
-    const row = JSON.parse(rowString)
-    new gridjs.Grid({
-        columns: [{id: "intime", name: "らぼいん"}, {id: "outtime", name: "らぼりだ"}, {id: "staytime", name: "滞在時間"}],
-        data: rewriteUnix2str(row)
-    }).render(document.getElementById("logTable"))
-    calcTotal(row)
+  const rowString = localStorage.getItem("log")
+  console.log(rowString)
+  const row = JSON.parse(rowString)
+  new gridjs.Grid({
+    columns: [{id: "intime", name: "らぼいん"}, {id: "outtime", name: "らぼりだ"}, {id: "staytime", name: "滞在時間"}],
+    data: rewriteUnix2str(row)
+  }).render(document.getElementById("logTable"))
+  calcTotal(row)
 
-    function calcTotal(data) {
-        let sum = 0;
-        data.forEach(d => {
-            sum += d.staytime;
-            console.log(sum)
-        })
-    }
+  function calcTotal(data) {
+    let sum = 0;
+    data.forEach(d => {
+      sum += d.staytime;
+      console.log(sum)
+    })
+  }
 
-    function rewriteUnix2str(data) {
-        let res = []
-        data.forEach(d => {
-            let tmp = {
-                "intime": toDateTimeString(d.intime),
-                "outtime": toDateTimeString(d.outtime),
-                "staytime": toTimeString(d.staytime)
-            }
-            res.push(tmp)
-        })
-        return res;
-    }
+  function rewriteUnix2str(data) {
+    let res = []
+    data.forEach(d => {
+      let tmp = {
+        "intime": toDateTimeString(d.intime),
+        "outtime": toDateTimeString(d.outtime),
+        "staytime": toTimeString(d.staytime)
+      }
+      res.push(tmp)
+    })
+    return res;
+  }
 </script>
 
 </body>
